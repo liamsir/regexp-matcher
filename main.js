@@ -1,4 +1,5 @@
 function match (regexp, text) {
+    if (regexp[0] === '^') return matchhere(regexp.substring(1), text)
     let i = 0;
     do {
         if (matchhere(regexp, text.substring(i)))
