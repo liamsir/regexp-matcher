@@ -11,6 +11,8 @@ function match (regexp, text) {
 function matchhere (regexp, text) {
     if (regexp.length === 0)
         return 1;
+    if (regexp[0] == '$' && regexp.length == 1)
+        return text.length === 0;
     if (text.length > 0 && (regexp[0] === text[0]))
         return matchhere(regexp.substring(1), text.substring(1))
     return 0;
